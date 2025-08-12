@@ -1,0 +1,28 @@
+/* Estilos para las notificaciones (toast) */
+
+#toast-container {
+    position: fixed; 
+    bottom: 20px; 
+    right: 20px; 
+    z-index: 2000;
+    display: flex; 
+    flex-direction: column; 
+    gap: 10px;
+}
+.toast {
+    background-color: var(--accent-primary); 
+    color: white; 
+    padding: 1rem 1.5rem;
+    border-radius: 0.5rem; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    opacity: 0; 
+    transform: translateX(100%); 
+    transition: opacity 0.3s, transform 0.3s;
+}
+.toast.show { 
+    opacity: 1; 
+    transform: translateX(0); 
+}
+.toast.error { 
+    background-color: #E53E3E; 
+}

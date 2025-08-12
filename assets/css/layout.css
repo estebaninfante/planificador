@@ -1,0 +1,64 @@
+/* * layout.css
+ * Define la estructura y estilos principales de la página.
+ */
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(to bottom right, rgb(35, 0, 133), rgb(4, 0, 7));
+    color: var(--text-primary);
+    user-select: none;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Correcto: Evita el scroll en el body */
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-secondary); }
+::-webkit-scrollbar-thumb { background: #4F4E57; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #6A6972; }
+
+/* El tag <main> ahora es el contenedor principal que se expande y permite el scroll */
+main {
+    flex: 1; /* Ocupa todo el espacio vertical disponible */
+    overflow-y: auto; /* Permite el scroll vertical cuando el contenido es más alto */
+    padding: 1.5rem;
+}
+
+/* Rejilla principal para la app (Sidebar + Calendario) */
+#app-grid {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 1.5rem;
+    /* Se establece una altura fija para que no crezca con el contenido */
+    height: calc(100vh - 8rem); /* 100% de la altura de la vista menos el header y el padding */
+}
+
+/* Título separador para la sección de estadísticas */
+.section-title {
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin: 2.5rem 0 1.5rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* Rejilla para las tarjetas de estadísticas */
+#stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    padding-bottom: 2rem; /* Añade un poco de espacio al final de la página */
+}
+
+
+/* Utilidades de layout */
+.glassmorphism {
+    background: rgba(28, 27, 34, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--border-color);
+}

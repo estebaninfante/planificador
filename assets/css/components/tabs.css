@@ -1,0 +1,14 @@
+/* Estilos para las pestañas */
+
+.tab-btn {
+    flex: 1;
+    padding-bottom: 0.5rem;
+    font-weight: 600;
+    border-bottom: 2px solid transparent;
+    color: var(--text-secondary);
+    transition: all 0.2s;
+}
+.tab-btn.active {
+    color: var(--text-primary);
+    border-bottom-color: var(--accent-primary);
+}

@@ -1,0 +1,96 @@
+/* Estilos para el componente del calendario */
+
+#calendar-grid {
+    display: grid;
+    grid-template-columns: 60px repeat(7, 1fr); 
+    grid-template-rows: auto repeat(36, calc(var(--time-slot-height) / 2));
+    position: relative;
+}
+#calendar-container.day-view #calendar-grid {
+     grid-template-columns: 60px 1fr;
+}
+.day-header, .time-header {
+    text-align: center; 
+    font-weight: 600;
+    padding: 0.75rem 0.5rem; 
+    position: sticky; 
+    top: 0;
+    background-color: var(--bg-secondary); 
+    z-index: 20;
+}
+.day-header.current-day { 
+    background-color: var(--accent-primary); 
+    color: white; 
+}
+.time-slot {
+    grid-column: 1; 
+    text-align: right; 
+    font-size: 0.75rem;
+    color: var(--text-secondary); 
+    padding-right: 0.5rem;
+    transform: translateY(-50%);
+}
+.grid-line { 
+    border-top: 1px solid var(--border-color); 
+}
+.day-column { 
+    position: relative; 
+    border-left: 1px solid var(--border-color); 
+}
+.calendar-event {
+    position: absolute; 
+    left: 4px;  /* Añade esta línea */
+    right: 4px; /* Añade esta línea */
+    background-color: var(--item-color, var(--accent-primary));
+    color: white; 
+    border-radius: 0.375rem; 
+    padding: 0.2rem 0.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); 
+    border: 1px solid rgba(0,0,0,0.2);
+    transition: top 0.1s, height 0.1s, transform 0.1s; 
+    overflow: hidden; 
+    z-index: 10;
+    cursor: grab; 
+    display: flex; 
+    flex-direction: column;
+}
+.calendar-event.dragging, .calendar-event.resizing {
+    opacity: 0.7; 
+    z-index: 30; 
+    transition: none;
+    pointer-events: none; /* <-- AÑADE ESTA LÍNEA */
+}
+.resize-handle {
+    position: absolute; 
+    left: 0; 
+    right: 0; 
+    height: 8px;
+    z-index: 15;
+}
+.resize-handle.top { 
+    top: 0; 
+    cursor: ns-resize; 
+}
+.resize-handle.bottom { 
+    bottom: 0; 
+    cursor: ns-resize; 
+}
+
+.current-time-indicator {
+    position: absolute; 
+    left: 0; 
+    right: 0; 
+    height: 2px;
+    background-color: var(--accent-primary); 
+    z-index: 25;
+}
+.current-time-indicator::before {
+    content: ''; 
+    position: absolute; 
+    left: -5px; 
+    top: -4px;
+    width: 12px; 
+    height: 12px; 
+    background-color: var(--accent-primary);
+    border-radius: 50%;
+}

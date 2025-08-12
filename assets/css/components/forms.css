@@ -1,0 +1,19 @@
+/* Estilos para elementos de formulario */
+
+.form-input, .form-select {
+    background-color: var(--bg-tertiary); 
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem; 
+    padding: 0.75rem; 
+    width: 100%;
+    color: var(--text-primary); 
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+.form-input:focus, .form-select:focus {
+    outline: none; 
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 3px rgba(138, 92, 244, 0.3);
+}
+.form-input-sm { 
+    padding: 0.5rem 0.75rem; 
+}

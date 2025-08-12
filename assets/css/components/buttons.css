@@ -1,0 +1,51 @@
+/* Estilos para todos los tipos de botones */
+
+.btn {
+    display: inline-flex; 
+    align-items: center; 
+    justify-content: center;
+    padding: 0.5rem 1rem; 
+    border-radius: 0.5rem; 
+    font-weight: 600;
+    transition: all 0.2s ease; 
+    cursor: pointer; 
+    border: none;
+}
+.btn-primary { 
+    background-color: var(--accent-primary); 
+    color: white; 
+}
+.btn-primary:hover { 
+    background-color: var(--accent-secondary); 
+}
+.btn-secondary { 
+    background-color: var(--bg-tertiary); 
+    color: var(--text-primary); 
+}
+.btn-secondary:hover { 
+    background-color: #3A3942; 
+}
+.btn-danger { 
+    background-color: #E53E3E; 
+    color: white; 
+}
+.btn-danger:hover { 
+    background-color: #C53030; 
+}
+.btn-sm { 
+    padding: 0.25rem 0.75rem; 
+    font-size: 0.875rem; 
+}
+
+.icon-btn {
+    background: none; 
+    border: none; 
+    color: var(--text-secondary);
+    padding: 0.5rem; 
+    border-radius: 0.375rem;
+    transition: color 0.2s, background-color 0.2s;
+}
+.icon-btn:hover {
+    color: var(--text-primary);
+    background-color: var(--bg-tertiary);
+}
