@@ -1,7 +1,7 @@
 
 @import url('variables.css');
 @import url('layout.css');
-
+@import url('animations.css');
 /* Componentes */
 @import url('components/buttons.css');
 @import url('components/forms.css');

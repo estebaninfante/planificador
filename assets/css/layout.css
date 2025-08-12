@@ -1,7 +1,6 @@
 body {
     font-family: 'Inter', sans-serif;
-    /* ✅ CORRECCIÓN: Se usa 'background' en lugar de 'background-color' para los gradientes */
-    background: linear-gradient(to bottom right, #1a008b, #190042);
+    background: linear-gradient(to bottom right, rgb(35, 0, 133), rgb(4, 0, 7));
     color: var(--text-primary);
     user-select: none;
     height: 100vh;
@@ -16,34 +15,59 @@ body {
 ::-webkit-scrollbar-thumb { background: #4F4E57; border-radius: 4px; }
 ::-webkit-scrollbar-thumb:hover { background: #6A6972; }
 
-/* El tag <main> ahora es el contenedor principal que se expande y permite el scroll */
+/* El tag <main> es ahora el contenedor de scroll-snap */
 main {
-    flex: 1; /* Ocupa todo el espacio vertical disponible */
-    overflow-y: auto; /* Permite el scroll vertical cuando el contenido es más alto */
-    padding: 1.5rem;
+    flex: 1;
+    height: calc(100vh - 5rem); /* Altura de la vista menos el header (h-20 = 5rem) */
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory; /* Activa el snap vertical */
+    scroll-behavior: auto; /* Añade el desplazamiento suave */
 }
 
-/* Rejilla principal para la app (Sidebar + Calendario) */
-#app-grid {
+/* Cada sección hija directa de main es un punto de anclaje */
+main > section {
+    height: 100%; /* Cada sección ocupa la altura completa del contenedor main */
+    scroll-snap-align: start; /* Se alinea al inicio del contenedor */
+    padding: 1.5rem;
+    box-sizing: border-box; /* Asegura que el padding no afecte la altura total */
+    animation: fadeIn 0.5s ease-in-out; /* Aplica la animación de fundido */
+}
+
+/* Estilos para la sección de la aplicación */
+#app-section {
     display: grid;
     grid-template-columns: 350px 1fr;
     gap: 1.5rem;
-    /* Se establece una altura fija para que no crezca con el contenido */
-    height: calc(100vh - 8rem); /* 100% de la altura de la vista menos el header y el padding */
 }
 
-/* ✅ NUEVA REGLA: Corrige el problema de crecimiento del sidebar */
-#app-grid > aside {
-    min-height: 0; /* Evita que el sidebar se expanda más allá de su contenedor */
+/* ✅ REGLA REINTRODUCIDA: Evita que el sidebar crezca sin control */
+#app-section > aside {
+    min-height: 0;
 }
+
+/* Estilos para la sección de estadísticas */
+#stats-section {
+    display: flex;
+    justify-content: center; /* Centra el contenedor verticalmente */
+    align-items: center; /* Centra el contenedor horizontalmente */
+}
+
+/* Nuevo contenedor para las estadísticas con el efecto glass */
+.stats-container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
 
 /* Título separador para la sección de estadísticas */
 .section-title {
-    text-align: center;
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: var(--text-secondary);
-    margin: 2.5rem 0 1.5rem 0;
+    text-align: left; /* Alinea el título a la izquierda */
+    font-size: 1.5rem; /* Aumenta el tamaño para más jerarquía */
+    font-weight: 700;
+    color: var(--text-primary); /* Color más visible */
+    margin-bottom: 2rem; /* Más espacio debajo del título */
     text-transform: uppercase;
     letter-spacing: 0.1em;
 }
@@ -53,9 +77,7 @@ main {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1.5rem;
-    padding-bottom: 2rem; /* Añade un poco de espacio al final de la página */
 }
-
 
 /* Utilidades de layout */
 .glassmorphism {

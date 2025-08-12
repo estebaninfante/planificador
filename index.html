@@ -37,10 +37,10 @@
         </div>
     </header>
 
-    <!-- Contenedor principal con scroll -->
-    <main id="main-content">
-        <!-- Rejilla de la aplicación (Sidebar + Calendario) -->
-        <div id="app-grid">
+    <!-- Contenedor principal con scroll snap -->
+    <main>
+        <!-- Página 1: Aplicación -->
+        <section id="app-section">
             <!-- Columna Izquierda: Tareas y Eventos -->
             <aside class="flex flex-col gap-6">
                 <div class="flex items-center gap-2">
@@ -99,34 +99,36 @@
                 </div>
                 <div id="calendar-container" class="relative flex-grow overflow-auto"></div>
             </section>
-        </div>
+        </section>
 
-        <!-- Separador de sección -->
-        <h2 class="section-title">Estadísticas</h2>
-
-        <!-- Rejilla de estadísticas -->
-        <section id="stats-grid">
-            <div class="stat-card glassmorphism rounded-xl">
-                <p class="text-sm text-gray-400">Tareas Pendientes</p>
-                <p id="stats-task-count" class="stat-value">0</p>
-            </div>
-            <div class="stat-card glassmorphism rounded-xl">
-                <p class="text-sm text-gray-400">Tareas Completadas</p>
-                <p id="stats-completed-tasks" class="stat-value">0</p>
-            </div>
-            <div class="stat-card glassmorphism rounded-xl">
-                <p class="text-sm text-gray-400">Eventos Totales</p>
-                <p id="stats-total-events" class="stat-value">0</p>
-            </div>
-            <div class="stat-card glassmorphism rounded-xl">
-                <p class="text-sm text-gray-400">Eventos esta Semana</p>
-                <p id="stats-week-events" class="stat-value">0</p>
+        <!-- Página 2: Estadísticas -->
+        <section id="stats-section">
+            <div class="stats-container glassmorphism rounded-xl">
+                <h2 class="section-title">Estadísticas</h2>
+                <div id="stats-grid">
+                    <div class="stat-card">
+                        <p class="text-sm text-gray-400">Tareas Pendientes</p>
+                        <p id="stats-task-count" class="stat-value">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="text-sm text-gray-400">Tareas Completadas</p>
+                        <p id="stats-completed-tasks" class="stat-value">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="text-sm text-gray-400">Eventos Totales</p>
+                        <p id="stats-total-events" class="stat-value">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="text-sm text-gray-400">Eventos esta Semana</p>
+                        <p id="stats-week-events" class="stat-value">0</p>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
 
 
-    <!-- Modales (sin cambios) -->
+    <!-- Modales -->
     <div id="choice-modal" class="modal">
         <div class="modal-content-choice glassmorphism rounded-xl p-8 text-center">
             <button type="button" class="close-modal-btn absolute top-4 right-4 text-gray-400 hover:text-white"><i class="fas fa-times"></i></button>
