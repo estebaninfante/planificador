@@ -1,10 +1,7 @@
-/* * layout.css
- * Define la estructura y estilos principales de la página.
- */
-
 body {
     font-family: 'Inter', sans-serif;
-    background: linear-gradient(to bottom right, rgb(35, 0, 133), rgb(4, 0, 7));
+    /* ✅ CORRECCIÓN: Se usa 'background' en lugar de 'background-color' para los gradientes */
+    background: linear-gradient(to bottom right, #1a008b, #190042);
     color: var(--text-primary);
     user-select: none;
     height: 100vh;
@@ -33,6 +30,11 @@ main {
     gap: 1.5rem;
     /* Se establece una altura fija para que no crezca con el contenido */
     height: calc(100vh - 8rem); /* 100% de la altura de la vista menos el header y el padding */
+}
+
+/* ✅ NUEVA REGLA: Corrige el problema de crecimiento del sidebar */
+#app-grid > aside {
+    min-height: 0; /* Evita que el sidebar se expanda más allá de su contenedor */
 }
 
 /* Título separador para la sección de estadísticas */
