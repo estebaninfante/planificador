@@ -19,6 +19,8 @@
 
 8. Cambiar de lugar el botón de JSON
 
+9. Mejorar la responsividad de la página.
+
 # Descripción de Funciones y Arquitectura del Código
 
 Este documento detalla la arquitectura y las responsabilidades de cada componente del **Gestor de Tiempo**.  
